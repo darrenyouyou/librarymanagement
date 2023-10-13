@@ -6,9 +6,10 @@ import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@images/pages/auth-v1-tree.png'
 import { useTheme } from 'vuetify'
+import router from '@/router'
 
 const form = ref({
-  email: '',
+  phone: '',
   password: '',
   remember: false,
 })
@@ -20,6 +21,37 @@ const authThemeMask = computed(() => {
 })
 
 const isPasswordVisible = ref(false)
+
+const login= (() => {
+  var formdata = new FormData();
+  formdata.append("phone", form.value.phone);
+  formdata.append("password", form.value.password);
+
+  var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+  };
+
+  fetch("http://localhost:8080/login", requestOptions)
+    .then(
+      response => {
+        if (response.ok) {
+            router.push('/books')
+            return response.text();
+        } else {
+            console.log('Error: ' + response.status);
+            alert("請檢查帳號密碼")
+            return response.text().then(errorResult => {
+                console.log('Error Response: ' + errorResult);
+                throw new Error('Fetch request failed with status ' + response.status);
+            });
+        }
+      }
+    )
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+})
 </script>
 
 <template>
@@ -36,7 +68,7 @@ const isPasswordVisible = ref(false)
         </template>
 
         <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          Library MGMT
+          welcome
         </VCardTitle>
       </VCardItem>
 
@@ -55,9 +87,8 @@ const isPasswordVisible = ref(false)
             <!-- email -->
             <VCol cols="12">
               <VTextField
-                v-model="form.email"
-                label="Email"
-                type="email"
+                v-model="form.phone"
+                label="phone"
               />
             </VCol>
 
@@ -87,12 +118,8 @@ const isPasswordVisible = ref(false)
               </div>
 
               <!-- login button -->
-              <VBtn
-                block
-                type="submit"
-                to="/"
-              >
-                Login
+              <VBtn block @click="login">
+                Sign in
               </VBtn>
             </VCol>
 
