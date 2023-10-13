@@ -19,14 +19,18 @@ public class Inventory {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "bookId")
+    private int bookId;
+
     public Inventory() {
     }
 
-    public Inventory(int id, int isbn, Timestamp storeTime, String status) {
+    public Inventory(int id, int isbn, Timestamp storeTime, String status, int bookId) {
         this.id = id;
         this.isbn = isbn;
         this.storeTime = storeTime;
         this.status = status;
+        this.bookId = bookId;
     }
 
     public int getId() {
@@ -59,5 +63,13 @@ public class Inventory {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 }

@@ -12,12 +12,13 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    public Inventory insertInventory(int isbn) {
+    public Inventory insertInventory(int isbn, int bookId) {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
         Inventory inventory = new Inventory();
         inventory.setIsbn(isbn);
         inventory.setStoreTime(currentTimestamp);
         inventory.setStatus(String.valueOf(InventoryStatus.IN_STOCK));
+        inventory.setBookId(bookId);
         return inventoryRepository.saveAndFlush(inventory);
     }
 

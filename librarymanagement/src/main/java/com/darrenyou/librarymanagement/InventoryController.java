@@ -16,8 +16,8 @@ public class InventoryController {
 
     @PostMapping("/insert_inventory")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<Inventory> insertInventory(@RequestParam int isbn) {
-        Inventory newInventory = inventoryService.insertInventory(isbn);
+    public ResponseEntity<Inventory> insertInventory(@RequestParam int isbn, @RequestParam int bookId) {
+        Inventory newInventory = inventoryService.insertInventory(isbn, bookId);
         return ResponseEntity.ok(newInventory);
     }
 

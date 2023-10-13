@@ -18,7 +18,8 @@ CREATE TABLE Inventory
     id int,
     isbn int,
     storeTime TIMESTAMP,
-    status varchar(255)
+    status varchar(255),
+    bookId int
 );
 
 CREATE TABLE Books
