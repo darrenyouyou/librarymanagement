@@ -15,8 +15,8 @@ public class BorrowRecordsController {
 
     @PostMapping("/insert_borrow_record")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<BorrowRecords> insertBorrowRecord(@RequestParam int userId, @RequestParam int inventoryId) {
-        BorrowRecords newBorrowRecord = borrowRecordsService.insertBorrowRecord(userId, inventoryId);
+    public ResponseEntity<BorrowRecords> insertBorrowRecord(@RequestParam int userId, @RequestParam int bookId) {
+        BorrowRecords newBorrowRecord = borrowRecordsService.insertBorrowRecord(userId, bookId);
         return ResponseEntity.ok(newBorrowRecord);
     }
 
