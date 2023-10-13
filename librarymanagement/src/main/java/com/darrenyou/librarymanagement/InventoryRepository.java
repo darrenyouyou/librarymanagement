@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Integer> {
+public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
-    List<Book> findAll();
+    List<Inventory> findAll();
+
+    @Query("SELECT u FROM Inventory u WHERE u.isbn = :isbn")
+    Inventory findByIsbn(@Param("isbn") int isbn);
 }

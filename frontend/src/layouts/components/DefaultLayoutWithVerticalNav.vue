@@ -58,13 +58,13 @@ const upgradeBanner = computed(() => {
     </template>
 
     <template #vertical-nav-content>
-      <!-- <VerticalNavLink
+      <VerticalNavLink
         :item="{
           title: 'Dashboard',
           icon: 'mdi-home-outline',
           to: '/dashboard',
         }"
-      /> -->
+      />
       <VerticalNavLink :item="{
         title: 'Books',
         icon: 'mdi-book',
