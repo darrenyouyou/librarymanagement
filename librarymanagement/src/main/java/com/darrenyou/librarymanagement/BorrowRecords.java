@@ -21,15 +21,19 @@ public class BorrowRecords {
     @Column(name = "returnDate")
     private Timestamp returnDate;
 
+    @Column(name = "inventoryId")
+    private int inventoryId;
+
     public BorrowRecords() {
     }
 
-    public BorrowRecords(int id, int userId, int bookId, Timestamp borrowDate, Timestamp returnDate) {
+    public BorrowRecords(int id, int userId, int bookId, Timestamp borrowDate, Timestamp returnDate, int inventoryId) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
+        this.inventoryId = inventoryId;
     }
 
     public int getId() {
@@ -70,5 +74,13 @@ public class BorrowRecords {
 
     public void setReturnDate(Timestamp returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public int getInventoryId() {
+        return inventoryId;
+    }
+
+    public void setInventoryId(int inventoryId) {
+        this.inventoryId = inventoryId;
     }
 }

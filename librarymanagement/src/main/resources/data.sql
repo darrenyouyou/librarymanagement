@@ -36,5 +36,6 @@ CREATE TABLE BorrowRecords
     userId int,
     bookId int,
     borrowDate TIMESTAMP,
-    returnDate TIMESTAMP
+    returnDate TIMESTAMP,
+    inventoryId int
 );

@@ -12,13 +12,14 @@ public class BorrowRecordsService {
     @Autowired
     private BorrowRecordsRepository borrowRecordsRepository;
 
-    public BorrowRecords insertBorrowRecord(int userId, int bookId) {
+    public BorrowRecords insertBorrowRecord(int userId, int bookId, int inventoryId) {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
         BorrowRecords borrowRecord = new BorrowRecords();
         borrowRecord.setUserId(userId);
         borrowRecord.setBookId(bookId);
         borrowRecord.setBorrowDate(currentTimestamp);
         borrowRecord.setReturnDate(null);
+        borrowRecord.setInventoryId(inventoryId);
         return borrowRecordsRepository.saveAndFlush(borrowRecord);
     }
 
