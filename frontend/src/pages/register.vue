@@ -52,11 +52,11 @@ const register = (() => {
         </template>
 
         <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          Materio
+          LIBRARY MGMT
         </VCardTitle>
       </VCardItem>
 
-      <VCardText class="pt-2">
+      <VCardText class="pt-2" v-if="false">
         <h5 class="text-h5 font-weight-semibold mb-1">
           Adventure starts here 🚀
         </h5>
@@ -103,14 +103,14 @@ const register = (() => {
               </RouterLink>
             </VCol>
 
-            <VCol cols="12" class="d-flex align-center">
+            <VCol cols="12" class="d-flex align-center" v-if="false">
               <VDivider />
               <span class="mx-4">or</span>
               <VDivider />
             </VCol>
 
             <!-- auth providers -->
-            <VCol cols="12" class="text-center">
+            <VCol cols="12" class="text-center" v-if="false">
               <AuthProvider />
             </VCol>
           </VRow>

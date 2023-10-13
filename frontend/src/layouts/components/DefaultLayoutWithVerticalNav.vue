@@ -1,10 +1,9 @@
 <script setup>
-import { useTheme } from 'vuetify'
 import upgradeBannerDark from '@images/pro/upgrade-banner-dark.png'
 import upgradeBannerLight from '@images/pro/upgrade-banner-light.png'
 import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+import { useTheme } from 'vuetify'
 
 // Components
 import Footer from '@/layouts/components/Footer.vue'
@@ -24,18 +23,12 @@ const upgradeBanner = computed(() => {
     <template #navbar="{ toggleVerticalOverlayNavActive }">
       <div class="d-flex h-100 align-center">
         <!-- 👉 Vertical nav toggle in overlay mode -->
-        <IconBtn
-          class="ms-n3 d-lg-none"
-          @click="toggleVerticalOverlayNavActive(true)"
-        >
+        <IconBtn class="ms-n3 d-lg-none" @click="toggleVerticalOverlayNavActive(true)">
           <VIcon icon="mdi-menu" />
         </IconBtn>
 
         <!-- 👉 Search -->
-        <div
-          class="d-flex align-center cursor-pointer"
-          style="user-select: none;"
-        >
+        <div class="d-flex align-center cursor-pointer" style="user-select: none;" v-if="false">
           <!-- 👉 Search Trigger button -->
           <IconBtn>
             <VIcon icon="mdi-magnify" />
@@ -49,43 +42,61 @@ const upgradeBanner = computed(() => {
 
         <VSpacer />
 
-        <IconBtn
-          class="me-2"
-          href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <IconBtn class="me-2" href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
+          target="_blank" rel="noopener noreferrer" v-if="false">
           <VIcon icon="mdi-github" />
         </IconBtn>
 
-        <IconBtn class="me-2">
+        <IconBtn class="me-2" v-if="false">
           <VIcon icon="mdi-bell-outline" />
         </IconBtn>
 
-        <NavbarThemeSwitcher class="me-2" />
+        <NavbarThemeSwitcher class="me-2" v-if="false" />
 
         <UserProfile />
       </div>
     </template>
 
     <template #vertical-nav-content>
-      <VerticalNavLink
+      <!-- <VerticalNavLink
         :item="{
           title: 'Dashboard',
           icon: 'mdi-home-outline',
           to: '/dashboard',
         }"
-      />
-      <VerticalNavLink
+      /> -->
+      <VerticalNavLink :item="{
+        title: 'Books',
+        icon: 'mdi-book',
+        to: '/books',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Borrowing Record',
+        icon: 'mdi-table',
+        to: '/borrowing-record',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Inventory',
+        icon: 'mdi-book-multiple',
+        to: '/inventory',
+      }" />
+      <!-- <VerticalNavLink
+        :item="{
+          title: 'Tables',
+          icon: 'mdi-table',
+          to: '/tables',
+        }"
+      /> -->
+      <!-- <VerticalNavLink
         :item="{
           title: 'Account Settings',
           icon: 'mdi-account-cog-outline',
           to: '/account-settings',
         }"
-      />
+      /> -->
 
       <!-- 👉 Pages -->
-      <VerticalNavSectionTitle
+      <!-- <VerticalNavSectionTitle
         :item="{
           heading: 'Pages',
         }"
@@ -110,10 +121,10 @@ const upgradeBanner = computed(() => {
           icon: 'mdi-information-outline',
           to: '/no-existence',
         }"
-      />
+      /> -->
 
       <!-- 👉 User Interface -->
-      <VerticalNavSectionTitle
+      <!-- <VerticalNavSectionTitle
         :item="{
           heading: 'User Interface',
         }"
@@ -152,24 +163,15 @@ const upgradeBanner = computed(() => {
           icon: 'mdi-form-select',
           to: '/form-layouts',
         }"
-      />
+      /> -->
     </template>
 
     <template #after-vertical-nav-items>
       <!-- 👉 illustration -->
-      <a
-        href="https://themeselection.com/item/materio-vuetify-vuejs-admin-template"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="margin-left: 7px;"
-      >
-        <img
-          :src="upgradeBanner"
-          alt="upgrade-banner"
-          transition="scale-transition"
-          class="upgrade-banner mx-auto"
-          style="max-width: 230px;"
-        >
+      <a href="https://themeselection.com/item/materio-vuetify-vuejs-admin-template" target="_blank"
+        rel="noopener noreferrer" style="margin-left: 7px;">
+        <img v-if="false" :src="upgradeBanner" alt="upgrade-banner" transition="scale-transition"
+          class="upgrade-banner mx-auto" style="max-width: 230px;">
       </a>
     </template>
 

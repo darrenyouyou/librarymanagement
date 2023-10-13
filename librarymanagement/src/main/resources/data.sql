@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Inventory;
 DROP TABLE IF EXISTS Books;
 DROP TABLE IF EXISTS BorrowRecords;
 
@@ -9,7 +10,7 @@ CREATE TABLE Users
     password varchar(255)
 );
 
-CREATE TABLE Books
+CREATE TABLE Inventory
 (
     id int,
     isbn int,

@@ -36,6 +36,18 @@ const router = createRouter({
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },
+        {
+          path: 'books',
+          component: () => import('../pages/books.vue'),
+        },
+        {
+          path: 'borrowing-record',
+          component: () => import('../pages/borrowing-record.vue'),
+        },
+        {
+          path: 'inventory',
+          component: () => import('../pages/inventory.vue'),
+        },
       ],
     },
     {
