@@ -30,8 +30,8 @@ public class InventoryController {
 
     @PutMapping("/update_inventory")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<Inventory> updateInventoryStatus(@RequestParam int isbn, @RequestParam String status) {
-        Inventory inventory = inventoryService.updateInventoryStatus(isbn, status);
+    public ResponseEntity<Inventory> updateInventoryStatus(@RequestParam int id, @RequestParam String status) {
+        Inventory inventory = inventoryService.updateInventoryStatus(id, status);
         if (inventory == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }

@@ -12,6 +12,6 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     List<Inventory> findAll();
 
-    @Query("SELECT u FROM Inventory u WHERE u.isbn = :isbn")
-    Inventory findByIsbn(@Param("isbn") int isbn);
+    @Query("SELECT u FROM Inventory u WHERE u.id = :id")
+    Inventory findById(@Param("id") int id);
 }

@@ -1,12 +1,13 @@
 <script setup>
+import router from '@/router'
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
 import logo from '@images/logo.svg?raw'
 import authV1MaskDark from '@images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@images/pages/auth-v1-tree-2.png'
 import authV1Tree from '@images/pages/auth-v1-tree.png'
+import Cookies from 'js-cookie'
 import { useTheme } from 'vuetify'
-import router from '@/router'
 
 const form = ref({
   phone: '',
@@ -37,7 +38,10 @@ const login= (() => {
     .then(
       response => {
         if (response.ok) {
-            router.push('/books')
+            const authorizationHeader = response.headers.get("Authorization");
+            console.log(authorizationHeader);
+            Cookies.set("jwt_token", authorizationHeader, { expires: 7 });
+            router.push('/Dashboard')
             return response.text();
         } else {
             console.log('Error: ' + response.status);

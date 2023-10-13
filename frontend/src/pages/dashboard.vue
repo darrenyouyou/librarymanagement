@@ -1,4 +1,6 @@
 <script setup>
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 
 const totalProfit = {
   title: 'Total Profit',
@@ -17,6 +19,18 @@ const newProject = {
   change: -18,
   subtitle: 'Yearly Project',
 }
+
+onMounted(() => {
+  console.log(Cookies.get('jwt_token'));
+  // 移除 "Bearer " 前缀
+  const tokenWithoutBearer = Cookies.get('jwt_token').replace('Bearer ', '');
+      // 解析JWT Token
+      const decodedToken = jwt_decode(tokenWithoutBearer);
+
+      // 获取subject
+      const subject = decodedToken.sub;
+      console.log('userId:', subject);
+});
 </script>
 
 <template>

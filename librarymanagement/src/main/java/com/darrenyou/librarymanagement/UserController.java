@@ -13,7 +13,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*", exposedHeaders = "Authorization")
     public ResponseEntity<User> registerUser(@RequestParam String phone, @RequestParam String password) {
         User user = userService.registerUser(phone, password);
         if (user == null) {
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*", exposedHeaders = "Authorization")
     public ResponseEntity<User> loginUser(@RequestParam String phone, @RequestParam String password) {
         User user = userService.login(phone, password);
         if (user == null) {

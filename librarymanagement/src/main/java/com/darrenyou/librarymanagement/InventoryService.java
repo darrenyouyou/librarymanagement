@@ -26,8 +26,8 @@ public class InventoryService {
         return inventoryRepository.findAll();
     }
 
-    public Inventory updateInventoryStatus(int isbn, String status) {
-        Inventory existingInventory = inventoryRepository.findByIsbn(isbn);
+    public Inventory updateInventoryStatus(int id, String status) {
+        Inventory existingInventory = inventoryRepository.findById(id);
 
         if (existingInventory != null) {
             existingInventory.setStatus(status);
