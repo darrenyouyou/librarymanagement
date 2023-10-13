@@ -7,7 +7,10 @@ CREATE TABLE Users
 (
     id int,
     phone varchar(255),
-    password varchar(255)
+    password varchar(255),
+    name varchar(255),
+    registrationTime TIMESTAMP,
+    lastLoginTime TIMESTAMP
 );
 
 CREATE TABLE Inventory

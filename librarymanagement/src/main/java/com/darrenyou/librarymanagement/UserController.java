@@ -19,7 +19,7 @@ public class UserController {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
-        String jwtToken = JwtGenerator.generateJwtToken(user.getPhone());
+        String jwtToken = JwtGenerator.generateJwtToken(user.getId());
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + jwtToken); // 添加JWT令牌到响应头
         return ResponseEntity.ok().headers(headers).body(user);
@@ -32,7 +32,7 @@ public class UserController {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         } else {
-            String jwtToken = JwtGenerator.generateJwtToken(user.getPhone());
+            String jwtToken = JwtGenerator.generateJwtToken(user.getId());
             HttpHeaders headers = new HttpHeaders();
             headers.add("Authorization", "Bearer " + jwtToken); // 添加JWT令牌到响应头
             return ResponseEntity.ok().headers(headers).body(user);

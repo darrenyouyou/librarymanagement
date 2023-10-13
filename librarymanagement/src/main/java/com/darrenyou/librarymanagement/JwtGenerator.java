@@ -10,12 +10,12 @@ public class JwtGenerator {
     private static Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static long validityInMilliseconds = 3600000;
 
-    public static String generateJwtToken(String phone) {
+    public static String generateJwtToken(int userId) {
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
         return Jwts.builder()
-                .setSubject(phone)
+                .setSubject(Integer.toString(userId))
                 .setIssuedAt(now)
                 .setExpiration(validity)
                 .signWith(SignatureAlgorithm.HS256, secretKey)
